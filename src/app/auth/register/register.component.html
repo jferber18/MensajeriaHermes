@@ -1,0 +1,29 @@
+<div class="container">
+    <div class="login-container">
+        <h2>Registro Hermes</h2>
+    <form>
+        <div class="input-group">
+            <label for="username">Usuario</label>
+            <input type="text" id="username" name="username" placeholder="Ingresa tu usuario" class="input-text" 
+            [(ngModel)]="User.UserEmail" required>
+        </div>
+        <div class="input-group">
+            <label for="password">Contraseña</label>
+            <input type="password" id="password" name="password" placeholder="Ingresa tu contraseña" class="input-text" 
+            [(ngModel)]="User.password"   required>
+        </div>
+        <div class="input-group">
+            <label for="password">Nombre</label>
+            <input type="text" id="Nombre" name="Nombre" placeholder="Ingresa tu nombre" class="input-text" 
+            [(ngModel)]="User.name"   required>
+        </div>
+        <div class="input-group">
+            <label for="password">Rol</label>
+            <input type="text" id="rol" name="Rol" placeholder="Selecciona tu rol" class="input-text" 
+            [(ngModel)]="User.role"   required>
+        </div>
+        <button type="button" (click)="register()" style="margin-top: 26px;">Registrarme</button>
+    </form>
+    </div>
+</div>
+

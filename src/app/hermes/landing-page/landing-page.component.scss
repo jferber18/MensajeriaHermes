@@ -1,0 +1,19 @@
+.labelPermiso{
+    margin-right: 131px;
+    background-color: #000000a8;
+    color: white;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 9px;
+}
+
+.listaServicios{
+    background-color: white;
+}
+.listaServicios:hover{
+    transition: 4ms;
+    background-color: rgba(255, 255, 255, 0.411);
+    cursor: pointer;
+}

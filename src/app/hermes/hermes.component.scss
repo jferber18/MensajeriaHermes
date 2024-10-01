@@ -1,0 +1,38 @@
+.HomePage{
+    text-align: center;
+    margin-top: 10%;
+}
+
+.ObjectivePage{
+    text-align: center;
+    margin: 120px 0px 0px 0px;
+}
+.ObjectivePage > .jumbotron{
+   background-color: #ffeaea9e;
+}
+
+.imgMensajero1{
+    width: 60%;
+}
+
+.colCenterItem{
+    display: flex;
+    align-items: center;
+}
+
+.navbar-fixed-top{
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+}
+
+.contactPage{
+    margin: 0px 0px 0px 0px;
+    color: white;
+}
+
+.contactPage > .jumbotron{
+    background-color: black;
+ }

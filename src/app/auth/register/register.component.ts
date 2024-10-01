@@ -1,0 +1,37 @@
+import { Component } from '@angular/core';
+import {FormsModule} from '@angular/forms';
+import { Router } from '@angular/router';
+import { User } from '../../core/interfaces/user';
+
+@Component({
+  selector: 'app-register',
+  standalone: true,
+  imports: [FormsModule],
+  templateUrl: './register.component.html',
+  styleUrl: './register.component.scss'
+})
+export class RegisterComponent {
+  constructor(private router : Router) {
+  }
+
+  User : User = {id : 0, UserEmail: "",password:"",role : 0,name : ""};
+  Users! : User[];
+
+  register(){
+    if(this.User.UserEmail === "" || this.User.name === "" ||
+      this.User.name === "" || this.User.role === 0 || this.User.password === ""){
+      alert('Falta el usuario o la contraseña!');
+    }else{
+      var val = localStorage.getItem('users');
+      this.Users = JSON.parse(val === null ? '' : val) as User[];
+
+      this.User.id = (this.Users[this.Users.length-1].id) +1;
+
+      this.Users.push(this.User);
+
+      localStorage.setItem('users', JSON.stringify(this.Users));
+      this.router.navigate(['/login']);
+    }
+  }
+
+}
