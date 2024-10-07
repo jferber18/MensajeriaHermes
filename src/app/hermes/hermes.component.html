@@ -13,20 +13,26 @@
             <a class="nav-link" href="#ObjectivePage">Objetivo</a>
           </li>
           <li class="nav-item">
+            <a class="nav-link" href="#featured-services">Destacados</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#testimonials">Clientes</a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link" href="#contactPage">Contactanos</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/login" tabindex="-1" aria-disabled="true">Iniciar sesión</a>
+            <a class="nav-link" (click)="RLogin()" tabindex="-1" aria-disabled="true" style="cursor: pointer;">Iniciar sesión</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/register" tabindex="-1" aria-disabled="true">Registrarse</a>
+            <a class="nav-link" (click)="RRegister()" tabindex="-1" aria-disabled="true" style="cursor: pointer;">Registrarse</a>
           </li>
         </ul>
       </div>
     </div>
   </nav>
 
-   <div class="container-fluid HomePage" id="Home">
+   <div class="HomePage" id="Home">
       <div class="jumbotron">
           <h1 class="display-4">Bienvenido a HERMES</h1>
           <p class="lead">La mejor plataforma de mensajería en línea.</p>
@@ -52,15 +58,58 @@
           </div>
       </div>
 
+      <div class="featured-services" id="featured-services">
+        <div class="jumbotron">
+        <h2>Nuestros Servicios Destacados</h2>
+        <div class="service-container">
+            <div class="service-card">
+                <img src="../../assets/img/envioRapidos.png" alt="Envíos Rápidos">
+                <h3>Envíos Rápidos</h3>
+                <p>Entrega en el mismo día dentro de la ciudad, garantizando eficiencia y seguridad.</p>
+            </div>
+            <div class="service-card">
+                <img src="../../assets/img/enviosInter.png" alt="Envíos Internacionales">
+                <h3>Envíos Internacionales</h3>
+                <p>Conectamos tus paquetes con cualquier parte del mundo con rapidez y seguridad.</p>
+            </div>
+            <div class="service-card">
+                <img src="../../assets/img/RatreoLinea.png" alt="Rastreo en Línea">
+                <h3>Rastreo en Línea</h3>
+                <p>Sigue tus envíos en tiempo real desde nuestra plataforma para mayor tranquilidad.</p>
+            </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="testimonials"  id="testimonials">
+      <div class="jumbotron">
+        <h2>Lo que dicen nuestros clientes</h2>
+        <div class="testimonial-container">
+            <div class="testimonial-card">
+                <p>"Hermes me ha ayudado a mantener mi negocio funcionando sin problemas. Sus envíos rápidos son perfectos."</p>
+                <h4>- María G.</h4>
+            </div>
+            <div class="testimonial-card">
+                <p>"Siempre puedo confiar en que mi paquete llegará a tiempo, incluso para envíos internacionales. ¡Altamente recomendado!"</p>
+                <h4>- Jorge P.</h4>
+            </div>
+            <div class="testimonial-card">
+                <p>"El rastreo en línea es una característica increíble. Puedo seguir mis pedidos en todo momento."</p>
+                <h4>- Laura M.</h4>
+            </div>
+          </div>
+        </div>
+    </div>
+
       <div class="container-fluid contactPage" id="contactPage">
         <div class="jumbotron">
-            <div class="container">
+            <div class="container" style="padding-bottom: 60px;">
                 <div class="row">
                     <div class="col colCenterItem" style="margin-top: 3%;">
                         <div class="row">
                             <h5 class="display-6">Contactanos</h5>
                             <p style="font-size: 1.5rem;font-weight: 300;">No dudes más, se parte de este nuevo futuro.</p>
-                            <img src="../../assets/img/Mensajeros1.png" alt="image" class="imgMensajero1">
+                            <img src="../../assets/img/contacto1.png" alt="image" class="imgMensajero1">
                         </div>
                     </div>
                     <div class="col" style="margin-top: 3%;">
@@ -74,6 +123,10 @@
                                         <label for="exampleFormControlInput2" class="form-label">Correo electrónico</label>
                                         <input type="email" class="form-control" id="exampleFormControlInput2" placeholder="Correo electrónico">
                                     </div>
+                                    <div class="mb-3">
+                                      <label for="exampleFormControlInput2" class="form-label">Dirección</label>
+                                      <input type="email" class="form-control" id="exampleFormControlInput2" placeholder="Dirección">
+                                  </div>
                                     <div class="mb-3">
                                         <label for="exampleFormControlTextarea1" class="form-label">Mensaje</label>
                                         <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>

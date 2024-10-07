@@ -20,19 +20,57 @@
 
 
   <div class="grid" style="padding: 3%;">
+    <div class="row" style="margin-bottom: 10px;" *ngIf="!block">
+      <div class="col">
+          <button class="btn btn-primary" type="button"  mat-raised-button (click)="openDialog(dialogServicio)">Agregar Servicio</button>
+      </div>
+    </div>
     <div class="row">
         <div class="col">
             <ul class="list-group">
                 <li *ngFor="let servicio of Servicios" class="list-group-item d-flex justify-content-between align-items-center listaServicios">
                     {{servicio.nombre}}&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;{{servicio.descripcion}}
                     <span class="badge text-bg-primary rounded-pill">${{servicio.precio}}</span>
+                    <div *ngIf="!block">
+                      <mat-icon style="color: red;">delete</mat-icon>
+                    </div>
                 </li>
             </ul>
         </div>
-        <div class="col">
-            
-        </div>
     </div>
-  </div>
+  </div> 
+<ng-template #dialogServicio>
+  <mat-dialog-content class="mat-typography">
+    <div class="row">
+      <div class="col-sm-12">
+        <h4>Agregar Servicio</h4>
+      </div>
+      <div class="container">
+        <form>
+            <div class="form-group">
+                <label for="username">Nombre</label>
+                <input type="text" id="username" name="username" placeholder="Nombre del servicio" class="input-text form-control" 
+                required [(ngModel)]="nombreServicio">
+            </div>
+            <div class="form-group">
+                <label for="descripcionServicio">Descripción</label>
+                <textarea name="descripcionServicio" id="descripcionServicio" 
+                class="form-control" placeholder="Descripción breve del servicio"
+                [(ngModel)]="descripcionServicio"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="Precio">Precio</label>
+                <input type="number" id="Precio" name="Precio" placeholder="Precio" class="input-text form-control" 
+                required  [(ngModel)]="precioServicio">
+            </div>
+        </form>
+    </div>
+    </div>
+  </mat-dialog-content>
+  <mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>Cancel</button>
+    <button mat-button [mat-dialog-close]="true" cdkFocusInitial (click)="saveService()">Install</button>
+  </mat-dialog-actions>
+</ng-template>
 
 

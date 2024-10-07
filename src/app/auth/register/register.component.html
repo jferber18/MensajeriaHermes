@@ -1,5 +1,11 @@
 <div class="container">
     <div class="login-container">
+        <div style="display: flex; align-items: start;">
+            <button mat-button (click)="RLogin()" style="width: 7px;background-color: white;">
+                <!-- <mat-icon class="small">arrow_back</mat-icon> -->
+                <img src="../../assets/img/arrow_back.svg" alt="Envíos Internacionales">
+            </button>
+        </div>
         <h2>Registro Hermes</h2>
     <form>
         <div class="input-group">
@@ -19,8 +25,10 @@
         </div>
         <div class="input-group">
             <label for="password">Rol</label>
-            <input type="text" id="rol" name="Rol" placeholder="Selecciona tu rol" class="input-text" 
-            [(ngModel)]="User.role"   required>
+            <select name="role" id="role" required [(ngModel)]="User.role" placeholder="Selecciona tu rol" class="input-text">
+                <option value="1">Administrador</option>
+                <option value="2">Visualizador</option>
+              </select>
         </div>
         <button type="button" (click)="register()" style="margin-top: 26px;">Registrarme</button>
     </form>

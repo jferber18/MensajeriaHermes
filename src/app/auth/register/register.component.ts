@@ -20,7 +20,7 @@ export class RegisterComponent {
   register(){
     if(this.User.UserEmail === "" || this.User.name === "" ||
       this.User.name === "" || this.User.role === 0 || this.User.password === ""){
-      alert('Falta el usuario o la contraseña!');
+      alert('Falta información!');
     }else{
       var val = localStorage.getItem('users');
       this.Users = JSON.parse(val === null ? '' : val) as User[];
@@ -34,4 +34,11 @@ export class RegisterComponent {
     }
   }
 
+  RLogin():void{
+    this.router.navigate(['login'])
+  }
+
+  RRegister():void{
+    this.router.navigate(['register'])
+  }
 }

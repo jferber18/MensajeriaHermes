@@ -3,11 +3,12 @@ import { RouterOutlet } from '@angular/router';
 import { User } from '../app/core/interfaces/user';
 import { Rol } from '../app/core/interfaces/rol';
 import { Servicio } from '../app/core/interfaces/servicio';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet],
+  imports: [RouterOutlet,MatIconModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
@@ -16,7 +17,7 @@ export class AppComponent {
 
   Users : User[] = [
                     {id:1,UserEmail:'jferber18',password:'12345',role:1, name :'JOSUE FERNANDEZ BERDUGO'},
-                    {id:2,UserEmail:'prueba',password:'12345',role:1,name :'PRUEBA'}
+                    {id:2,UserEmail:'prueba',password:'12345',role:2,name :'PRUEBA'}
                   ];
   Roles : Rol[] = [
     {id:1,name :'Administrador',block:false},

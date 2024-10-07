@@ -2,11 +2,14 @@ import { Component } from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import { Router } from '@angular/router';
 import { User } from '../../core/interfaces/user';
+import {MatIconModule} from '@angular/material/icon';
+import { MatDialog,MatDialogModule } from '@angular/material/dialog';
+import {MatButtonModule} from '@angular/material/button';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule,MatIconModule,MatButtonModule,MatDialogModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
 })
@@ -42,6 +45,18 @@ export class LoginComponent {
 
       this.router.navigate(['/landingpage']);
     }
+  }
+
+  RLogin():void{
+    this.router.navigate(['login'])
+  }
+
+  RRegister():void{
+    this.router.navigate(['register'])
+  }
+
+  RHome():void{
+    this.router.navigate(['home'])
   }
 
 }

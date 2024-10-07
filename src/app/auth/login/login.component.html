@@ -1,5 +1,11 @@
 <div class="container">
         <div class="login-container">
+            <div style="display: flex; align-items: start;">
+                <button mat-button (click)="RHome()" style="width: 7px;background-color: white;">
+                    <!-- <mat-icon class="small">arrow_back</mat-icon> -->
+                    <img src="../../assets/img/arrow_back.svg" alt="Envíos Internacionales">
+                </button>
+            </div>
             <h2>Logueo Hermes</h2>
         <form>
             <div class="input-group">
@@ -18,7 +24,7 @@
                     <input type="checkbox" id="rememberMe" name="rememberMe">
                     <label for="rememberMe">Recuérdame</label>
                 </div>
-                <a href="/register">Crear una cuenta</a>
+                <a (click)="RRegister()" style="cursor: pointer;">Crear una cuenta</a>
             </div>
             <button type="button" (click)="login()" style="margin-top: 26px;">Iniciar sesión</button>
         </form>

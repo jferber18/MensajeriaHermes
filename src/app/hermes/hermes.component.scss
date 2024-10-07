@@ -6,11 +6,8 @@
 .ObjectivePage{
     text-align: center;
     margin: 120px 0px 0px 0px;
+    background-color: #ffeaea9e;
 }
-.ObjectivePage > .jumbotron{
-   background-color: #ffeaea9e;
-}
-
 .imgMensajero1{
     width: 60%;
 }
@@ -31,8 +28,95 @@
 .contactPage{
     margin: 0px 0px 0px 0px;
     color: white;
+    background-color: black;
 }
 
-.contactPage > .jumbotron{
-    background-color: black;
- }
+ /* Servicios Destacados */
+.featured-services {
+    padding: 50px 0;
+    background-color: #f4f4f4;
+    text-align: center;
+}
+
+.featured-services h2 {
+    margin-bottom: 40px;
+    color: #333;
+    font-size: 28px;
+}
+
+.service-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.service-card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 300px;
+    margin-bottom: 30px;
+    transition: transform 0.3s ease;
+}
+
+.service-card img {
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.service-card h3 {
+    color: #007BFF;
+    margin-bottom: 10px;
+}
+
+.service-card p {
+    font-size: 14px;
+    color: #666;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+}
+
+/* Testimonios */
+.testimonials {
+    padding: 50px 0;
+    background-color: #fff;
+    text-align: center;
+}
+
+.testimonials h2 {
+    margin-bottom: 40px;
+    color: #333;
+    font-size: 28px;
+}
+
+.testimonial-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.testimonial-card {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 300px;
+    margin-bottom: 30px;
+    font-style: italic;
+    color: #555;
+}
+
+.testimonial-card p {
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.testimonial-card h4 {
+    margin-top: 10px;
+    font-size: 16px;
+    color: #007BFF;
+}

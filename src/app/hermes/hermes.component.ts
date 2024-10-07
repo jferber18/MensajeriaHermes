@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import {MatIconModule} from '@angular/material/icon';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 @Component({
   selector: 'app-hermes',
   standalone: true,
-  imports: [],
+  imports: [MatIconModule,MatFormFieldModule],
   styleUrls: ['./hermes.component.scss'],
   templateUrl: './hermes.component.html',
 })
@@ -16,7 +18,7 @@ export class HermesComponent {
     this.router.navigate(['login'])
   }
 
-  private RRegister():void{
+  RRegister():void{
     this.router.navigate(['register'])
   }
 
