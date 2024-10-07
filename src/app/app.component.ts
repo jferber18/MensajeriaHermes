@@ -36,8 +36,16 @@ export class AppComponent {
   ];
 
   constructor() {
-    localStorage.setItem('users', JSON.stringify(this.Users));
-    localStorage.setItem('roles', JSON.stringify(this.Roles));
-    localStorage.setItem('servicios', JSON.stringify(this.Servicios));
+    if (localStorage.getItem('users') === undefined){
+      localStorage.setItem('users', JSON.stringify(this.Users));
+    }
+
+    if (localStorage.getItem('roles') === undefined){
+      localStorage.setItem('roles', JSON.stringify(this.Roles));
+    }
+
+    if (localStorage.getItem('servicios') === undefined){
+      localStorage.setItem('servicios', JSON.stringify(this.Servicios));
+    }
   }
 }

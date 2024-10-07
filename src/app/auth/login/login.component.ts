@@ -30,13 +30,12 @@ export class LoginComponent {
     if(this.User == '' || this.Pass == ''){
       alert('Falta el usuario o la contraseña!');
     }else{
-
       var val = localStorage.getItem('users');
       this.Users = JSON.parse(val === null ? '' : val) as User[];
 
       var exist = this.Users.filter(x => x.UserEmail === this.User && x.password === this.Pass);
-      if(exist === null){
-        alert('El usuario o contraseña incorrecta!');
+      if(exist === null || exist.length === 0){
+        alert('El usuario no existe!');
         return;
       }
 

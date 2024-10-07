@@ -22,12 +22,25 @@ export class RegisterComponent {
       this.User.name === "" || this.User.role === 0 || this.User.password === ""){
       alert('Falta información!');
     }else{
+
       var val = localStorage.getItem('users');
       this.Users = JSON.parse(val === null ? '' : val) as User[];
 
-      this.User.id = (this.Users[this.Users.length-1].id) +1;
+      var exist = this.Users.filter(x => x.UserEmail === this.User.UserEmail);
+      if(exist.length>0){
+        alert('El usuario ya existe!');
+        return;
+      }
 
-      this.Users.push(this.User);
+      this.Users.push(
+        {
+          id: (this.Users[this.Users.length-1].id) +1,
+          UserEmail: this.User.UserEmail, 
+          password: this.User.password, 
+          name: this.User.name, 
+          role: Number(this.User.role), 
+        }
+      );
 
       localStorage.setItem('users', JSON.stringify(this.Users));
       this.router.navigate(['/login']);

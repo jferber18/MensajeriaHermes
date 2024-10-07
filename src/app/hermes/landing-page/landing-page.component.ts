@@ -1,6 +1,7 @@
 import { Component,inject, TemplateRef  } from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import { NgFor,NgIf } from '@angular/common';
+import { Router } from '@angular/router';
 import { User } from '../../core/interfaces/user';
 import { Rol } from '../../core/interfaces/rol';
 import { Servicio } from '../../core/interfaces/servicio';
@@ -30,7 +31,13 @@ export class LandingPageComponent {
   descripcionServicio: string = '';
   precioServicio: number = 0;
 
-  constructor() {
+  //Variables form User
+  UserEmail: string = '';
+  nameUser: string = '';
+  pass: string = '';
+  Role: number = 0;
+
+  constructor(private router:Router) {
     var val = localStorage.getItem('users');
     this.Users = JSON.parse(val === null ? '' : val) as User[];
 
@@ -44,7 +51,7 @@ export class LandingPageComponent {
   ActivarPermisos(){
     var val :string | undefined = localStorage.getItem('user')?.toString();
     var user : User[] = this.Users.filter(x=> x.UserEmail === atob(val === undefined ? '' : val));
-    var roles : Rol[] = this.Roles.filter(x=> x.id === user[0].id);
+    var roles : Rol[] = this.Roles.filter(x=> x.id === Number(user[0].role));
     this.NamePermission = roles[0].name;
     this.block = roles[0].block;
   }
@@ -65,6 +72,7 @@ export class LandingPageComponent {
   openDialog(templateRef: TemplateRef<any>): void {
     const dialogRef = this.dialog.open(templateRef, {
       width: '300px',
+      disableClose: true
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -82,6 +90,7 @@ export class LandingPageComponent {
       this.precioServicio === 0){
       alert('Falta información!');
     }else{
+      
       this.Servicios.push(
         {
           id: (this.Servicios[this.Servicios.length-1].id) +1,
@@ -95,4 +104,44 @@ export class LandingPageComponent {
     }
   }
 
+  saveUser(){
+    if(this.UserEmail === "" || this.pass === "" ||
+      this.Role === 0 || this.nameUser === ""){
+      alert('Falta información!');
+    }else{
+      if(this.Users.filter(user => user.UserEmail === this.UserEmail).length > 0){
+        alert('El usuario ya existe!');
+        return;
+      }
+
+      this.Users.push(
+        {
+          id: (this.Users[this.Users.length-1].id) +1,
+          UserEmail: this.UserEmail, 
+          password: this.pass, 
+          name: this.nameUser, 
+          role: Number(this.Role), 
+        }
+      );
+      localStorage.setItem('users', JSON.stringify(this.Users));
+    }
+    this.UserEmail = '';
+    this.nameUser = '';
+    this.pass = '';
+    this.Role = 0;
+  }
+
+  deleteService(id: number){
+    this.Servicios = this.Servicios.filter(x => x.id!== id);
+    localStorage.setItem('servicios', JSON.stringify(this.Servicios));
+  }
+
+  deleteUser(id: number){
+    this.Users = this.Users.filter(x => x.id!== id);
+    localStorage.setItem('users', JSON.stringify(this.Users));
+  }
+
+  RHome():void{
+    this.router.navigate(['home'])
+  }
 }
